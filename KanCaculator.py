@@ -1,5 +1,6 @@
 
 
+from typing import Text
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -187,6 +188,7 @@ class Ui_MainWindow(object):
     def press_button(self, pressed):
             if pressed == 'C':
                 self.label.setText('0')
+                self.label_2.setText('')
             else:
                 if self.label.text() == '0':
                     self.label.setText('')
@@ -207,8 +209,10 @@ class Ui_MainWindow(object):
 
     def dot_button(self):
         screen = self.label.text()
-        if screen[-1] == '.':
+        if '.' in screen:
             pass
+            if '+' in screen:
+                self.label.setText(f'{screen}.')
         else:
             self.label.setText(f'{screen}.')
 
